@@ -40,3 +40,10 @@ yarn-error.log*
 **/*.log
 package-lock.json
 **/*.bun
+
+.env
+
+app.db
+app.db-shm
+app.db-wal
+app.db-journal

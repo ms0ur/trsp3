@@ -1,7 +1,11 @@
-import { Elysia } from "elysia";
+import { createApp } from './app'
+import { config } from './config'
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+const port = Number(process.env.PORT ?? 3000)
+const app = createApp().listen(port)
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+console.log(`🦊 Elysia running at http://${app.server?.hostname}:${app.server?.port}`)
+console.log(`MODE=${config.mode}`)
+if (config.isDev) {
+  console.log(`Docs: http://localhost:3000/openapi`)
+}
